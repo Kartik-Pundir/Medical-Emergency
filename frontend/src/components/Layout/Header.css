@@ -1,0 +1,120 @@
+.header {
+  background: var(--white);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-left h2 {
+  color: var(--dark-color);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.header-left h2:hover {
+  transform: translateX(5px);
+}
+
+.header-left h2 i {
+  color: var(--primary-color);
+  font-size: 32px;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  10%, 30% { transform: scale(1.1); }
+  20%, 40% { transform: scale(1); }
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.user-name {
+  color: var(--text-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: var(--light-color);
+  border-radius: 50px;
+  font-size: 15px;
+  transition: all 0.3s;
+  border: 1px solid var(--border-color);
+}
+
+.user-name:hover {
+  background: rgba(0, 102, 255, 0.05);
+  border-color: var(--primary-color);
+}
+
+.user-name i {
+  font-size: 22px;
+  color: var(--primary-color);
+}
+
+.btn-sm {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 50px;
+}
+
+.btn-logout {
+  background: var(--light-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s;
+}
+
+.btn-logout:hover {
+  background: var(--gradient-primary);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 102, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .header-left h2 {
+    font-size: 20px;
+  }
+  
+  .user-name {
+    font-size: 14px;
+  }
+}

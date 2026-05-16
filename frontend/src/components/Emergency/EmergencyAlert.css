@@ -1,0 +1,114 @@
+.emergency-page {
+  min-height: 100vh;
+  background: var(--light-color);
+}
+
+.emergency-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.emergency-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.emergency-header i {
+  font-size: 60px;
+  color: var(--danger-color);
+  margin-bottom: 15px;
+}
+
+.emergency-header h2 {
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.emergency-header p {
+  color: var(--text-secondary);
+}
+
+.emergency-form {
+  margin-top: 20px;
+}
+
+.emergency-form .form-group {
+  margin-bottom: 20px;
+}
+
+.emergency-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.emergency-form label i {
+  margin-right: 8px;
+  color: var(--primary-color);
+}
+
+.emergency-form select,
+.emergency-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  transition: border-color 0.3s;
+  background: var(--light-color);
+}
+
+.emergency-form select:focus,
+.emergency-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background: var(--white);
+}
+
+.location-info {
+  background: #e8f5e9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--success-color);
+  font-weight: 600;
+}
+
+.location-info i {
+  font-size: 20px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.form-actions .btn {
+  flex: 1;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .emergency-card {
+    padding: 30px 20px;
+  }
+  
+  .emergency-header i {
+    font-size: 50px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+}

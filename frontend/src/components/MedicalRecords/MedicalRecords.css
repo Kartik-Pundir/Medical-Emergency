@@ -1,0 +1,197 @@
+.records-page {
+  min-height: 100vh;
+  background: var(--light-color);
+}
+
+.actions-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.actions-bar select {
+  padding: 10px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 15px;
+  min-width: 200px;
+  background: var(--white);
+}
+
+.record-form {
+  margin-top: 20px;
+}
+
+.record-form .form-group {
+  margin-bottom: 20px;
+}
+
+.record-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.record-form input,
+.record-form select,
+.record-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  background: var(--light-color);
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-actions .btn {
+  flex: 1;
+  justify-content: center;
+}
+
+.records-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.record-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--primary-color);
+  transition: transform 0.3s;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary-color);
+}
+
+.record-card.critical {
+  border-left-color: var(--danger-color);
+  background: #fff5f5;
+}
+
+.record-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.record-header {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.record-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(0, 102, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.record-icon i {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.record-info h3 {
+  margin: 0 0 5px 0;
+  color: var(--text-primary);
+  font-size: 18px;
+}
+
+.record-type {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(0, 102, 255, 0.1);
+  border-radius: 4px;
+  font-size: 12px;
+  text-transform: capitalize;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.critical-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--danger-color);
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.record-description {
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.record-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid var(--light-color);
+}
+
+.record-footer small {
+  color: #95a5a6;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  color: var(--danger-color);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.btn-delete:hover {
+  background: #fee;
+}
+
+@media (max-width: 768px) {
+  .actions-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .actions-bar select {
+    width: 100%;
+  }
+  
+  .records-grid {
+    grid-template-columns: 1fr;
+  }
+}
