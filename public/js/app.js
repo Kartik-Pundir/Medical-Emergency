@@ -1,6 +1,6 @@
 // Medical Emergency System - Frontend JavaScript
 
-const API_BASE = '../api';
+const API_BASE = 'https://differ-eval-across-relevance.trycloudflare.com/api';
 let currentUser = null;
 let userLocation = null;
 
