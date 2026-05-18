@@ -1,36 +1,31 @@
 <?php
 /**
- * MongoDB Database Configuration
+ * Database Configuration for MySQL
  */
 
-// MongoDB Atlas Connection String
-// Replace with your actual MongoDB Atlas connection string
-define('MONGODB_URI', getenv('MONGODB_URI') ?: 'mongodb+srv://username:password@cluster.mongodb.net/medical_emergency?retryWrites=true&w=majority');
+define('DB_HOST', 'localhost');
 define('DB_NAME', 'medical_emergency');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_CHARSET', 'utf8mb4');
 
 class Database {
     private static $instance = null;
-    private $client;
-    private $database;
+    private $connection;
     
     private function __construct() {
         try {
-            // Check if MongoDB extension is loaded
-            if (!extension_loaded('mongodb')) {
-                throw new Exception("MongoDB extension not loaded. Install: composer require mongodb/mongodb");
-            }
+            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+            $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ];
             
-            // Create MongoDB client
-            $this->client = new MongoDB\Driver\Manager(MONGODB_URI);
-            
-            // For MongoDB PHP Library (if using composer)
-            // Uncomment below if you install via composer
-            // $this->client = new MongoDB\Client(MONGODB_URI);
-            // $this->database = $this->client->selectDatabase(DB_NAME);
-            
-        } catch (Exception $e) {
-            error_log("MongoDB Connection Error: " . $e->getMessage());
-            throw new Exception("Database connection failed: " . $e->getMessage());
+            $this->connection = new PDO($dsn, DB_USER, DB_PASS, $options);
+        } catch (PDOException $e) {
+            error_log("Database Connection Error: " . $e->getMessage());
+            throw new Exception("Database connection failed");
         }
     }
     
@@ -42,16 +37,7 @@ class Database {
     }
     
     public function getConnection() {
-        return $this->client;
-    }
-    
-    public function getDatabase() {
-        return $this->database;
-    }
-    
-    // Helper method to get collection
-    public function getCollection($collectionName) {
-        return $this->database->selectCollection($collectionName);
+        return $this->connection;
     }
     
     // Prevent cloning

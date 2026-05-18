@@ -39,8 +39,14 @@ function Register() {
         setError(response.data.message);
       }
     } catch (err) {
-      setError('Registration failed. Please try again.');
       console.error('Registration error:', err);
+      if (err.response) {
+        setError(err.response.data?.message || 'Server error. Please try again.');
+      } else if (err.request) {
+        setError('Cannot connect to server. Please check if backend is running.');
+      } else {
+        setError('Registration failed. Please try again.');
+      }
     } finally {
       setLoading(false);
     }

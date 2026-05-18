@@ -16,21 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 require_once __DIR__ . '/../config/config.php';
-
-// Check if MongoDB extension is available
-if (!extension_loaded('mongodb')) {
-    http_response_code(500);
-    echo json_encode([
-        'success' => false,
-        'message' => 'MongoDB extension not installed. Please install: pecl install mongodb'
-    ]);
-    exit();
-}
-
-require_once __DIR__ . '/../includes/AuthMongo.php';
+require_once __DIR__ . '/../includes/Auth.php';
 
 try {
-    $auth = new AuthMongo();
+    $auth = new Auth();
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode([
