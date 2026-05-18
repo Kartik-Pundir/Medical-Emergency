@@ -1,0 +1,14 @@
+{
+    "name": "medical-emergency/backend",
+    "description": "Medical Emergency System Backend with MongoDB",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "mongodb/mongodb": "^1.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "includes/"
+        }
+    }
+}
